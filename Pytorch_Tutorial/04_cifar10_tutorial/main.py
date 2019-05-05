@@ -53,7 +53,7 @@ for epoch in range(max_epoch):
             outputs = model(inputs)
             
             val_loss = criterion(outputs, labels)
-            running_val_loss += val_loss.item()
+            running_val_loss += val_loss.item() * inputs.size(0)
             labels_val_len += labels.size(0)
 
     print(f'[INFO] Epoch {epoch+1}/{max_epoch}: Loss: {running_loss/labels_len:.5f}, Validation loss: {running_val_loss/labels_val_len:.5f}')
