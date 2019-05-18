@@ -1,5 +1,5 @@
 from keras.models import Sequential
-from keras.layers import Conv2D, MaxPooling2D, Activation, Flatten, Dense
+from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
 from keras import backend as K
 
 class LeNet:
