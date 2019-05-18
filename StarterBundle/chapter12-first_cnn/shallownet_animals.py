@@ -27,7 +27,7 @@ sp = SimplePreprocessor(32, 32)
 iap = ImageToArrayPreprocessor()
 
 # load the dataset and scale raw pixel to range [0, 1]
-sdl = SimpleDatasetLoader(preprocessors=[sp, iap])
+sdl = SimpleDatasetLoader(preprocessors=[sp])
 data, labels = sdl.load(image_paths, verbose=500)
 data = data.astype('float')/255
 

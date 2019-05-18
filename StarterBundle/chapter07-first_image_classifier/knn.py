@@ -1,14 +1,5 @@
 # USAGE
 # python knn.py --dataset ../../SolutionDL4CV/SB_code/datasets/animals
-import warnings
-import sys
-def ignore_warn(*args, **kwargs):
-    pass
-warnings.warn = ignore_warn
-
-if not sys.warnoptions:
-    warnings.simplefilter("ignore")
-
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split

@@ -15,7 +15,8 @@ scores = W.dot(image) + b
 for score, label in zip(scores, labels):
     print(f'[INFO] {label}: {score:.2f}')
 
-cv2.putText(origin, f'Label: {labels[np.argmax(scores)]}', (10, 30), cv2.FONT_HERSHEY_COMPLEX, 0.9, (0, 255, 0), 2)
+cv2.putText(origin, f'Label: {labels[np.argmax(scores)]}',
+            (10, 30), cv2.FONT_HERSHEY_COMPLEX, 0.9, (0, 255, 0), 2)
 
 cv2.imshow('Image', origin)
-cv2.waitKey(0)    
+cv2.waitKey(0)

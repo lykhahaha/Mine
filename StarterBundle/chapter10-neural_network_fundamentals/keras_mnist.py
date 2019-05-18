@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 from keras.models import Sequential
 from keras.optimizers import SGD
-from keras.layers.core import Dense
+from keras.layers import Dense
 from sklearn import datasets
 import matplotlib.pyplot as plt
 import numpy as np
@@ -22,7 +22,8 @@ dataset = datasets.fetch_mldata('MNIST original')
 # scale the raw pixel intensities to the range [0, 1.0], then
 # construct the training and testing splits
 data = dataset.data.astype('float')/255
-trainX, testX, trainY, testY = train_test_split(data, dataset.target, test_size=0.25)
+trainX, testX, trainY, testY = train_test_split(
+    data, dataset.target, test_size=0.25)
 
 # convert the labels from integers to vectors
 lb = LabelBinarizer()
@@ -39,7 +40,8 @@ model.add(Dense(10, activation='softmax'))
 # Training neurall networkk
 sgd = SGD(lr=0.01)
 model.compile(sgd, loss='categorical_crossentropy', metrics=['accuracy'])
-H = model.fit(trainX, trainY, validation_data=(testX, testY), epochs=100, batch_size=128, verbose=2)
+H = model.fit(trainX, trainY, validation_data=(testX, testY),
+              epochs=100, batch_size=128, verbose=2)
 
 print('[INFO] evaluating network...')
 predictions = model.predict(testX)

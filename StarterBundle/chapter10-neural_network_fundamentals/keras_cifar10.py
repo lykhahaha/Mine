@@ -29,7 +29,8 @@ trainY = lb.fit_transform(trainY)
 testY = lb.transform(testY)
 
 # initialize the label names for the CIFAR-10 dataset
-labelNames = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
+labelNames = ["airplane", "automobile", "bird", "cat",
+              "deer", "dog", "frog", "horse", "ship", "truck"]
 
 # Define neural nets 3072 - 256 - 128 - 10
 input_size = trainX.shape[1]
@@ -38,10 +39,11 @@ model.add(Dense(1024, input_shape=(input_size,), activation='relu'))
 model.add(Dense(512, activation='relu'))
 model.add(Dense(10, activation='softmax'))
 
-# Training neurall networkk
+# Training neural network
 sgd = SGD(lr=0.01)
 model.compile(sgd, loss='categorical_crossentropy', metrics=['accuracy'])
-H = model.fit(trainX, trainY, validation_data=(testX, testY), epochs=100, batch_size=128, verbose=2)
+H = model.fit(trainX, trainY, validation_data=(testX, testY),
+              epochs=100, batch_size=128, verbose=2)
 
 print('[INFO] evaluating network...')
 predictions = model.predict(testX, batch_size=128)
