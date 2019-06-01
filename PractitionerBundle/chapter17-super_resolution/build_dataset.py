@@ -68,7 +68,7 @@ for input_path, output_path in zip(input_paths, output_paths):
     input_writer.add([input_image], [-1])
     output_writer.add([output_image], [-1])
 
-# close HDF% dataset
+# close HDF5 dataset
 input_writer.close()
 output_writer.close()
 

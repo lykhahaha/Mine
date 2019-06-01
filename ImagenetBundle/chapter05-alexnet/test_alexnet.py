@@ -1,5 +1,5 @@
 # USAGE
-# # python train_alexnet.py --checkpoints checkpoints --prefix alexnet --epoch 50
+# python train_alexnet.py --checkpoints checkpoints --prefix alexnet --epoch 50
 from config import imagenet_alexnet_config as config
 import mxnet as mx
 import argparse
@@ -25,7 +25,7 @@ checkpoints_path = os.path.sep.join([args['checkpoints'], args['prefix']])
 model = mx.model.FeedForward.load(checkpoints_path, args['epoch'])
 
 # compile model
-model = mx.model.FeedForward(symbol=model.symbol, ctx=[mx.gpu(0)], arg_params=model.arg_params, aux_params=model.arg_params)
+model = mx.model.FeedForward(symbol=model.symbol, ctx=[mx.gpu(0)], arg_params=model.arg_params, aux_params=model.aux_params)
 
 # make predictions on testing data
 print('[INFO] predicting in testing data...')

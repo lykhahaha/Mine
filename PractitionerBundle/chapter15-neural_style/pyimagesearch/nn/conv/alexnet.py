@@ -1,4 +1,4 @@
-from keras.models import Sequential
+﻿from keras.models import Sequential
 from keras.layers import BatchNormalization, Conv2D, MaxPooling2D, Flatten, Dropout, Dense
 from keras.regularizers import l2
 from keras import backend as K
@@ -61,7 +61,7 @@ class AlexNet:
         # SOFTMAX       1000
 
         # Block #1: first CONV -> ReLU -> POOL layer set
-        model.add(Conv2D(96, (11, 11), strides=(4, 4), input_shape=input_shape, padding='same', activation='relu', kernel_regularizer=l2(reg)))
+        model.add(Conv2D(96, (11, 11), strides=(4, 4), activation='relu', kernel_regularizer=l2(reg), input_shape=input_shape))
         model.add(BatchNormalization(axis=chan_dim))
         model.add(MaxPooling2D(pool_size=(3, 3), strides=(2, 2)))
         model.add(Dropout(0.25))

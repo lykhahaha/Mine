@@ -20,5 +20,5 @@ bitwise_xor = cv2.bitwise_xor(rectangle, circle)
 cv2.imshow('XOR', bitwise_xor)
 
 bitwise_not = cv2.bitwise_not(circle)
-cv2.imshow('AND', bitwise_not)
+cv2.imshow('NOT', bitwise_not)
 cv2.waitKey(0)

@@ -17,6 +17,9 @@ for i, layer in enumerate(model.layers):
     print(f'[INFO]{i:02d}\t{layer.__class__.__name__}')
 
 for i, layer in enumerate(model.layers):
+    print(f'[INFO]{i:02d}\t{layer.name}')
+
+for i, layer in enumerate(model.layers):
     print(i)
     for weight in layer.weights:
         print(f'{weight.shape}\t{weight.name}')

@@ -2,7 +2,7 @@
 # python rank_accuracy.py --db ../datasets/flowers17/hdf5/features.hdf5 --estimator flowers17.cpickle
 # python rank_accuracy.py --db ../datasets/caltech-101/hdf5/features.hdf5 --estimator caltech-101.cpickle
 from pyimagesearch.utils.ranked import rank5_accuracy
-from sklearn.externals import joblib
+import pickle
 import argparse
 import h5py
 
@@ -14,7 +14,7 @@ args = vars(ap.parse_args())
 
 # load pre-trained model
 print('[INFO] loading pretrained model...')
-model = joblib.load(args['estimator'])
+model = pickle.loads(open(args['estimator'], 'rb').read())
 
 # open HDF5 database for reading then determine index of training and test split, assume that this data was shuffled *prior* to writing it to disk
 db = h5py.File(args['db'], 'r')

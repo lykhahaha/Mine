@@ -2,7 +2,7 @@
 import imutils
 import cv2
 
-def process(image, width, height):
+def preprocess(image, width, height):
     # grab dimensions of image, the initialize padding values
     h, w = image.shape[:2]
 

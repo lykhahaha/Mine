@@ -6,7 +6,7 @@ from keras.preprocessing.image import img_to_array
 from sklearn.preprocessing import LabelBinarizer
 from sklearn.model_selection import train_test_split
 from imutils import paths
-from pyimagesearch.utils.captchahelper import process
+from pyimagesearch.utils.captchahelper import preprocess
 from sklearn.metrics import classification_report
 import matplotlib.pyplot as plt
 import numpy as np
@@ -28,7 +28,7 @@ for image_path in paths.list_images(args['dataset']):
     # load the image, pre-process it, and store it in the data list
     image = cv2.imread(image_path)
     image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    image = process(image, 28, 28)
+    image = preprocess(image, 28, 28)
     image = img_to_array(image)
     data.append(image)
 

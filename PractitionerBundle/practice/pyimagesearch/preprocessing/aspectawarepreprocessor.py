@@ -15,10 +15,10 @@ class AspectAwarePreprocessor:
         # if width is smaller than height, resize along the width and update deltas
         if w < h:
             image = imutils.resize(image, width=self.width, inter=self.inter)
-            d_h = int((image.shape[0] - self.height)/2.)
+            d_h = int((image.shape[0] - self.height)//2)
         else:
             image = imutils.resize(image, height=self.height, inter=self.inter)
-            d_w = int((image.shape[1] - self.width)/2.)
+            d_w = int((image.shape[1] - self.width)//2)
         
         # crop the image based on deltas
         h, w = image.shape[:2]

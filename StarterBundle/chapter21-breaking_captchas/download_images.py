@@ -1,5 +1,5 @@
 # USAGE
-# python download_images.py --output output --num-images 500
+# python download_images.py --output downloads --num-images 500
 import argparse
 import requests
 import time

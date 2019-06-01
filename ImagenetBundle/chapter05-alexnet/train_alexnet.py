@@ -52,7 +52,7 @@ else:
     model = model.symbol
 
 # compile model
-model = mx.model.FeedForward(symbol=model, ctx=[mx.gpu(0)], num_epoch=100, optimizer=opt, initializer=mx.initializer.Xavier(), arg_params=arg_params, aux_params=aux_params, begin_epoch=args['start_epoch'])
+model = mx.model.FeedForward(symbol=model, ctx=[mx.gpu(i) for i in range(config.NUM_DEVICES)], num_epoch=100, optimizer=opt, initializer=mx.initializer.Xavier(), arg_params=arg_params, aux_params=aux_params, begin_epoch=args['start_epoch'])
 
 # initialize callbacks and evaluation metrics
 batch_end_cbs = [mx.callback.Speedometer(batch_size, frequent=500)]

@@ -41,4 +41,4 @@ DATASET_MEAN = path.sep.join(['output', 'imagenet_mean.json'])
 
 # define batch size and number of devices used for training
 BATCH_SIZE = 128
-NUM_DEVICES = 2
+NUM_DEVICES = 1
